@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="flex justify-center hero-wrap hero-wrap-2 h-full "
+    style="background-image: url('/media/images/bg_22.png');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+
+    <div class="container w-7/12">
+        <div class="flex items-center no-gutters slider-text align-items-end">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs mb-2"><span class="mr-2"><a href="{% url 'index:home'%}">Home <i
+                                class="ion-ios-arrow-forward"></i></a></span> <span>Contact Us <i
+                            class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-0 bread">Contact Us</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    
+</style>
+
+<section class="bg-gray-200 flex justify-center py-8">
+    <div class="w-full">
+        <div class="flex justify-center">
+            <div class="w-10/12 md:w-8/12">
+                <div class="wrapper font-sans">
+                    <div class="flex flex-col md:flex-row border bg-white">
+                        <div class="h-[600px] w-full lg:w-7/12">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4 font-semibold text-xl text-primary ftco-animate">Get in touch</h3>
+                                <div id="form-message-warning" class="mb-4"></div>
+                                {% for message in messages %}
+                                    <div id="form-message-success" class="mb-4 {% if message.tags == 'success' %} text-green-600 {%else%} text-red-500 {% endif %}">
+                                         {{message}}
+                                    </div>
+                                {% endfor %}
+                                <form method="POST" action="#">
+                                    {% csrf_token %}
+                                    <div class="">
+                                        <div class="mb-4">
+                                            <div class="flex flex-col">
+                                                <label class="label" for="name">Full Name</label>
+                                                <input type="text" class="border-b border-gray-300 outline-none  focus:border-0 active:border-0 focus:outline-none" name="fullname" id="name"
+                                                    placeholder="Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div class="flex flex-col">
+                                                <label class="label" for="email">Email Address</label>
+                                                <input type="email" class="border-b border-gray-300 outline-none  focus:border-0 active:border-0 focus:outline-none" name="email" id="email"
+                                                    placeholder="Email" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div class="flex flex-col">
+                                                <label class="label" for="subject">Subject</label>
+                                                <input type="text" class="border-b border-gray-300 outline-none  focus:border-0 active:border-0 focus:outline-none" name="subject" id="subject"
+                                                    placeholder="Subject" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div class="flex flex-col">
+                                                <label class="label" for="#">Message</label>
+                                                <textarea name="message" class="border-b border-gray-300 outline-none  focus:border-0 active:border-0 focus:outline-none" id="message" cols="30"
+                                                    rows="4" placeholder="Message" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <div class="form-group">
+                                                <input type="submit" value="Send Message" class="bg-primary w-full py-2">
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="h-[600px] w-full lg:w-5/12  bg-primary">
+                            <div class="info-wrap  w-full p-md-5 p-4">
+                                <h3 class="mb-4 font-semibold text-xl">Let's get in touch</h3>
+                                <p class="mb-9">We're open for any suggestion or just to have a chat</p>
+                                <div class="flex items-center mb-6">
+                                    <div class="flex justify-center border rounded-full  py-5 px-6">
+                                        <span class="fa fa-map-marker w-3"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p><span>Address:</span> 14 Dennis Osadebe Way, Asaba, Delta State</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mb-6">
+                                    <div class="flex justify-center border rounded-full  py-5 px-6">
+                                        <span class="fa fa-phone w-3"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p><span>Phone:</span> <a href="tel://09068734840">+234 906873 4840</a></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mb-6">
+                                    <div class="flex justify-center border rounded-full  py-5 px-6">
+                                        <span class="fa fa-paper-plane w-3"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p><span>Email:</span> <a href="mailto:afrikbook@gmail.com">afrikbook@gmail.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mb-6">
+                                    <div class="flex justify-center border rounded-full  py-5 px-6">
+                                        <span class="fa fa-globe w-3"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p><span>Website:</span> <a href="console.afrikbook.com">afrikbook.accounting.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+

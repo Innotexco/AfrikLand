@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+	@keyframes blinkCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typeAndDelete {
+  0%,
+  10% {
+    width: 0;
+  }
+  45%,
+  55% {
+    width: 23.2em;
+  } /* adjust width based on content */
+  90%,
+  100% {
+    width: 0;
+  }
+}
+
+	.text-t {
+		/* display: inline-block; */
+		white-space: nowrap;
+		overflow: hidden;
+		border-right: 0.2em solid #fff; /* Cursor */
+		animation:
+			typeAndDelete 4s steps(11) infinite,
+			blinkCursor 0.5s step-end infinite alternate;
+		margin-top: 1.5em;
+		}
+</style>
+
+<!-- carosel -->
+<div class="hero-wra">
+	<div class="home-slider owl-carousel">
+		<div class="slider-item  flex justify-center" style="background-image:url(media/images/bg_11.png);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div
+					class="flex items-center justify-center no-gutters slider-text align-items-center justify-content-center">
+					<div class="col-md-8 ftco-animate">
+						<div class="text w-100 text-center">
+							<h2 class="text-primary">We Help Business Grow</h2>
+							
+							<h1 class="mb-4 ">We Help You Businesses Innovate and Grow</h1>
+							<p><a href="https://acc.afrikbook.com/NewCompany" class="bg-primary p-2 rounded-lg">Connect with us</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="slider-item  flex justify-center" style="background-image:url(media/images/bg_22.png);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div
+					class="flex items-center justify-center no-gutters slider-text align-items-center justify-content-center">
+					<div class="col-md-8 ftco-animate">
+						<div class="text w-100 text-center">
+							<h2>We Support Business</h2>
+							<h1 class="mb-4">The Best Business Support</h1>
+							<p><a href="https://acc.afrikbook.com/NewCompany" class="bg-primary p-2 rounded-lg">Connect with us</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="slider-item  flex justify-center" style="background-image:url(media/images/bg_33.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div
+					class="flex items-center justify-center no-gutters slider-text align-items-center justify-content-center">
+					<div class="col-md-8 ftco-animate">
+						<div class="text w-100 text-center">
+							<h2>We Give Advice</h2>
+							<h1 class="mb-4">Expert Financial Advice</h1>
+							<p><a href="https://acc.afrikbook.com/NewCompany" class="bg-primary p-2 rounded-lg">Connect with us</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include 'components/first.html' %}
+
+{% include 'components/second.html' %}
+
+<!-- {% include 'components/acheivements.html' %} -->
+
+{% include 'components/signup.html' %}
+
+<!-- {% include 'components/testimonies.html' %} -->
+
+
+{% include 'components/plans.html' %}
+
+
+
+
+
+
+{% endblock content %}
