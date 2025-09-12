@@ -14,8 +14,8 @@
         </div>
         <form action="#" class="searchform order-sm-start order-lg-last">
             <div class="form-group flex justify-center items-center">
-                <input type="text" class="outline-none rounded-l text-gray-600" placeholder="Search">
-                <button type="submit" placeholder="" class="form-control search bg-primary h-10 w-10 md:w-20"><span class="fa fa-search"></span></button>
+                <input id="search" type="text" class="hidden outline-none rounded-l text-gray-600" placeholder="Search">
+                <button id="search_button" type="button" placeholder="" class="form-control search bg-primary h-10 w-10 md:w-20"><span class="fa fa-search"></span></button>
             </div>
         </form>
         <div class="block lg:hidden text-white flex gap-2">
@@ -37,4 +37,31 @@
        $('#side-nav').slideToggle('slow')
     //    $('#side-nav').toggle('slow')
     })
+    
+    const searchInput = document.getElementById("search");
+    const searchButton = document.getElementById("search_button");
+
+    searchButton.addEventListener("click", function (event) {
+    event.stopPropagation(); // prevent click from bubbling up to document
+
+    searchInput.classList.toggle("hidden");
+
+    if (!searchInput.classList.contains("hidden")) {
+      searchButton.type = "submit";
+      searchInput.focus(); // auto focus
+    } else {
+      searchButton.type = "button";
+    }
+  });
+
+  // Hide input when clicking outside
+  document.addEventListener("click", function (event) {
+    const isClickInside = searchInput.contains(event.target) || searchButton.contains(event.target);
+
+    if (!isClickInside && !searchInput.classList.contains("hidden")) {
+      searchInput.classList.add("hidden");
+      searchButton.type = "button"; // reset button
+    }
+  });
+    
 </script>
